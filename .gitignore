@@ -1,0 +1,19 @@
+.env
+.env.local
+.env.production
+BE/node_modules
+BE/uploads
+node_modules
+uploads
+*.log
+.DS_Store
+ReWear PPT.pptx
+
+# Docker
+docker-compose.override.yml
+
+# Backups
+backups/
+
+# Azure
+.azure/

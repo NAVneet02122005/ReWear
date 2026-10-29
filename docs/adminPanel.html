@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReWear - Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <link rel="stylesheet" href="adminpanel.css">
+     <link rel="icon" href="logo.png" type="image/png">
+    <script src="config.js"></script>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="admin-logo">
+                <h2>Re<span>Wear</span> Admin</h2>
+            </div>
+            <ul class="admin-nav-menu">
+                <li class="admin-nav-item">
+                    <a href="userdashboard.html" class="admin-nav-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a href="adminPanel.html" class="admin-nav-link active">
+                        <i class="fas fa-users"></i>
+                        <span>Manage Users</span>
+                    </a>
+                </li>
+                <!-- Remove Manage Orders nav item and redirect to browse.html if it was present -->
+                <!-- <li class="admin-nav-item">
+                    <a href="itemlisting.html" class="admin-nav-link">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Manage Orders</span>
+                    </a>
+                </li> -->
+                <!-- <li class="admin-nav-item">
+                    <a href="#" class="admin-nav-link">
+                        <i class="fas fa-tshirt"></i>
+                        <span>Manage Listings</span>
+                    </a>
+                </li> -->
+                <!-- <li class="admin-nav-item">
+                    <a href="#" class="admin-nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a> -->
+                </li>
+                <li class="admin-nav-item">
+                    <a href="login.html" class="admin-nav-link">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="admin-main-content">
+            <div class="admin-header">
+                <h1>Admin Panel</h1>
+                <div class="admin-user-info">
+                    <img src="https://randomuser.me/api/portraits/lego/2.jpg" alt="Admin" style="background:#fff;">
+                    <span>Admin User</span>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="admin-stats-cards">
+                <div class="admin-stat-card users">
+                    <h3>Total Users</h3>
+                    <p id="total-users">...</p>
+                </div>
+                <div class="admin-stat-card listings">
+                    <h3>Active Listings</h3>
+                    <p id="active-listings">...</p>
+                </div>
+                <div class="admin-stat-card orders">
+                    <h3>Pending Swaps</h3>
+                    <p id="pending-swaps">...</p>
+                </div>
+                <div class="admin-stat-card revenue">
+                    <h3>Completed Swaps</h3>
+                    <p id="completed-swaps">...</p>
+                </div>
+            </div>
+
+            <!-- User Management Section -->
+            <div class="admin-content-section">
+                <h2 class="admin-section-title">Manage Users</h2>
+                
+                <div class="admin-search-bar">
+                    <input type="text" class="admin-search-input" placeholder="Search users...">
+                    <button class="admin-search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Details</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-users-table-body">
+                        <!-- User rows will be injected here by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="user-modal" class="modal" style="display:none;">
+                    <div class="modal-content">
+                        <span class="close" id="close-user-modal">&times;</span>
+                        <h3>User Details</h3>
+                        <div id="user-details-content"></div>
+                    </div>
+                </div>
+                <div id="edit-user-modal" class="modal" style="display:none;">
+                    <div class="modal-content">
+                        <span class="close" id="close-edit-user-modal">&times;</span>
+                        <h3>Edit User</h3>
+                        <form id="edit-user-form">
+                            <input type="hidden" id="edit-user-id">
+                            <label>Username: <input type="text" id="edit-username"></label><br>
+                            <label>Email: <input type="email" id="edit-email"></label><br>
+                            <label>Points: <input type="number" id="edit-points"></label><br>
+                            <label>Avatar: <input type="text" id="edit-avatar"></label><br>
+                            <label>Location: <input type="text" id="edit-location"></label><br>
+                            <button type="submit">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="delete-user-modal" class="modal" style="display:none;">
+                    <div class="modal-content">
+                        <span class="close" id="close-delete-user-modal">&times;</span>
+                        <h3>Delete User</h3>
+                        <p>Are you sure you want to delete this user?</p>
+                        <button id="confirm-delete-user">Delete</button>
+                        <button id="cancel-delete-user">Cancel</button>
+                    </div>
+                </div>
+    </div>
+  <script src="adminPanel.js"></script>
+</body>
+</html>
+
+

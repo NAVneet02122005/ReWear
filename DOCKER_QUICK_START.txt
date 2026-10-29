@@ -1,0 +1,62 @@
+ReWear - Docker Quick Start
+============================
+
+Prerequisites:
+--------------
+1. Docker Desktop installed
+2. .env file in root directory (copy from .env.production and fill in values)
+
+Quick Start:
+------------
+1. Start the application:
+   docker compose -f docker/docker-compose.yml --env-file .env up -d --build
+
+2. Access the application:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000/api/products
+
+3. Stop the application:
+   docker compose -f docker/docker-compose.yml --env-file .env down
+
+Common Commands:
+----------------
+View logs:
+  docker compose -f docker/docker-compose.yml logs -f
+
+View backend logs only:
+  docker compose -f docker/docker-compose.yml logs -f backend
+
+View frontend logs only:
+  docker compose -f docker/docker-compose.yml logs -f frontend
+
+Restart services:
+  docker compose -f docker/docker-compose.yml restart
+
+Check status:
+  docker compose -f docker/docker-compose.yml ps
+
+Rebuild after code changes:
+  docker compose -f docker/docker-compose.yml up -d --build
+
+Troubleshooting:
+----------------
+If containers fail to start:
+1. Check .env file exists in root directory
+2. Verify MongoDB connection string is correct
+3. Check logs: docker compose -f docker/docker-compose.yml logs
+
+Clean restart:
+  docker compose -f docker/docker-compose.yml down -v
+  docker compose -f docker/docker-compose.yml up -d --build
+
+Project Structure:
+------------------
+ReWear/
+├── BE/                 # Backend application
+├── docs/               # Frontend application
+├── docker/             # Docker configuration
+│   ├── Dockerfile.backend
+│   ├── Dockerfile.frontend
+│   └── docker-compose.yml
+├── .env                # Environment variables
+└── deploy.sh           # Deployment script
