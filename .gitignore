@@ -1,19 +1,37 @@
+# Environment variables
 .env
-.env.local
-.env.production
-BE/node_modules
-BE/uploads
-node_modules
-uploads
-*.log
-.DS_Store
-ReWear PPT.pptx
+.env.*
+!.env.example
 
-# Docker
-docker-compose.override.yml
+# Dependencies
+node_modules/
+BE/node_modules/
+
+# Uploads
+uploads/
+BE/uploads/
+
+# Logs
+*.log
+npm-debug.log*
 
 # Backups
 backups/
 
-# Azure
+# Docker
+docker-compose.override.yml
+
+# Azure credentials
 .azure/
+*.pem
+*.key
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+
+# Presentation
+ReWear PPT.pptx
